@@ -5,7 +5,17 @@ This package takes a file of text and tranlates it into Pig Latin, or provides a
 ## Installation
 ```pip install -e .```
 
+## Usage
+```bash
+usage: piglatin [-h] [-f FILE] [-i]
+
+optional arguments:
+  -h, --help            show this help message and exit
+  -f FILE, --file FILE  the file to be translated
+  -i, --input           interactive translator option in terminal
+```
+
 ## Sample Code
-- ```my_program_name --help```
-- ```my_program_name -i```
-- Assuming you are in the hack-program directory: ```my_program_name -f sample.txt```
+- ```piglatin --help```
+- ```piglatin -i```
+- Assuming you are in the hack-program directory: ```piglatin -f sample.txt```
