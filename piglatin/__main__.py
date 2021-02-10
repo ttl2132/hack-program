@@ -7,6 +7,7 @@ Command line argparser for darwinday
 import argparse
 from piglatin import translate
 
+
 def parse_arguments():
     """
     Parses CLI arguments using argparse
@@ -36,6 +37,7 @@ def parse_arguments():
             "cannot enter both --file and --input at the same time"
         )
     return args
+
 
 def run_program():
     "runs the command line program"

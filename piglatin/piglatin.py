@@ -6,6 +6,7 @@ Functions of Pig Latin code.
 
 import string
 
+
 def translate(isinteractive, file=None):
     """
     Prints the input in Pig Latin.
@@ -23,10 +24,11 @@ def translate(isinteractive, file=None):
         while True:
             try:
                 text = input(
-                    "Enter some text to translate. Type Ctrl+C to leave the translator.\n"
+                    "Enter some text to translate. " +
+                    "Type Ctrl+C to leave the translator.\n"
                 )
-                translated_line = [translate_word(word) for word in text.split()]
-                print(" ".join(translated_line))
+                tl_line = [translate_word(word) for word in text.split()]
+                print(" ".join(tl_line))
             except KeyboardInterrupt:
                 print("\nEbyay!")
                 break
@@ -34,14 +36,15 @@ def translate(isinteractive, file=None):
         with open(file, "r") as f:
             lines = f.readlines()
             for line in lines:
-                translated_line = [translate_word(word) for word in line.split()]
-                print(" ".join(translated_line))
+                tl_line = [translate_word(word) for word in line.split()]
+                print(" ".join(tl_line))
+
 
 def translate_word(word):
     """
     Returns a single word translated to Pig Latin.
-    
-    For simplicity sake, the characters 'y' and 'Y' are always treated as consonants.
+
+    For simplicity sake, 'y' and 'Y' are always treated as consonants.
 
     Parameters
     ----------
@@ -49,13 +52,14 @@ def translate_word(word):
         The word to translate.
     """
 
-    # Creating variables to store the prefix of the original word and the remaining characters.
+    # Variables to store prefix of original word and remaining characters.
     prefix = ""
     suffix = word
     punct = ""
 
     # Consonant rule
-    while len(suffix) and not suffix[0] in "aeiouAEIOU" + string.punctuation:
+    while len(suffix) and \
+            not suffix[0] in "aeiouAEIOU" + string.punctuation:
         prefix = prefix + suffix[0]
         suffix = suffix[1:]
 
@@ -64,8 +68,9 @@ def translate_word(word):
         last_index = len(suffix)-1
         punct = suffix[last_index] + punct
         suffix = suffix[:last_index]
-        
+
     return suffix + prefix + "ay" + punct
+
 
 if __name__ == "__main__":
     translate(True)
