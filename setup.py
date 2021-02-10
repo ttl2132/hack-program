@@ -2,7 +2,7 @@
 
 """
 Install piglatin package. To install locally use:
-    'pip install -m ."
+    'pip install -e ."
 """
 
 from setuptools import setup
